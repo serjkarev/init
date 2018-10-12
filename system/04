@@ -1,0 +1,5 @@
+uptime -s
+или
+who -b
+или
+last reboot

@@ -1,0 +1,2 @@
+ps axjf - дерево процессов PID
+service ssh | grep PID - main PID

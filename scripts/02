@@ -1,0 +1,9 @@
+#!/bin/bash
+#нужно делать под рутом или поменять права доступа для всех созданых файлов с помощью sudo chmod 777
+touch /var/log/update_script.log
+touch /home/file_for_update
+touch /home/cron_tmp
+echo 'apt-get update >> /var/log/update_script.log && apt-get upgrade >> /var/log/update_script.log' > /home/file_for_update
+crontab -l > /home/cron_tmp
+echo '0 4 * * 1 bash /home/file_for_update' >> /home/cron_tmp
+crontab /home/cron_tmp

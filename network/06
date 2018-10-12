@@ -1,0 +1,2 @@
+less /etc/resolv.conf 
+потм можно заюзать  grep 'nameserver'

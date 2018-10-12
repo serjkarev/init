@@ -1,0 +1,16 @@
+#!/bin/bash
+touch file
+touch /home/script04
+m1="$(md5sum '/etc/crontab' | awk '{print $1}')"
+m2="$(cat 'file')"
+
+if [ "$m1" != "$m2" ]
+then
+	md5sum /etc/crontab | awk '{print $1)' > file
+	echo 'not ok' | mail -s "Cronfile was changed" mail@youremail.com
+fi
+
+touch /home/cron_is_cron
+crontab -l > /home/cron_is_cron
+echo '0 0 * * * bash /home/script04' >> /home/cron_is_cron
+crontab /home/cron_is_cron

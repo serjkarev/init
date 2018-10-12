@@ -1,0 +1,2 @@
+dig slash16.org +short
+#whois 'insert ip which returned grep' | grep Organization | awk '{print $2, $3}'
